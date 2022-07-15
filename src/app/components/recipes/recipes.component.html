@@ -31,8 +31,12 @@
             </ng-template>
             <p>Produce quantity: {{ recipe.produceQuantity }} </p>
             <!-- Ingredient list -->
-            <p-listbox [options]="recipe.ingredients" optionLabel="name" [readonly]="true" styleClass="ingredient-list">
-                <ng-template let-ingredient pTemplate="item">
+            <p-listbox 
+            emptyMessage="No ingredients needed"
+              [options]="recipe.ingredients" 
+              optionLabel="name" 
+              [readonly]="true" styleClass="ingredient-list">
+                <ng-template let-ingredient pTemplate="item" >
                   <span>
                     <div class="item me-1">
                       <img [src]="ingredient.imageUrl">

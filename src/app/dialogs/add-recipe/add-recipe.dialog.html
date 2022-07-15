@@ -90,7 +90,7 @@
         label="Submit" 
         styleClass="p-button-sm p-button-rounded" 
         icon="pi pi-send" 
-        [disabled]="!addedIngredients.length || sampleForm.invalid"
+        [disabled]="sampleForm.invalid"
         (click)="submitRecipe()"
     ></p-button>
 </div>

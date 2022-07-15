@@ -21,7 +21,6 @@ export class HttpService {
 
   private graphQL<T>(query: string): Observable<T> {
     query = JSON.stringify(query).replace(/\\n|\"/g, '').replace(/\\/g, '"');
-    console.log(query);
     return this.http.post<T>(`/graphql`, { query });
   }
 

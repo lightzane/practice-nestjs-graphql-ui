@@ -2,11 +2,23 @@
 
 html,
 body {
-    // background-image: url("https://cdn.jsdelivr.net/gh/lightzane/basic-kanban@master/src/assets/scattered-forcefields.svg");
-    // background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Tuolumne_Meadows_Sunset.jpg/800px-Tuolumne_Meadows_Sunset.jpg");
-    background-image: url("https://cdn.osxdaily.com/wp-content/uploads/2017/06/macos-high-sierra-default-wallpaper-fall-mountain-scene-1.jpg");
+    background-image: url("https://images.pling.com/img/00/00/62/07/32/1561768/98b2e7b31050e48bbac3e5cc7fb6a1b8fdf6cc416056606404d4a5918d638512abe3.jpg");
+    transition: background-image 1s ease-in-out;
     background-attachment: fixed;
     background-size: cover;
+    height: 100%;
+}
+
+.bg-monterey-purple {
+    background-image: url("https://images.pling.com/img/00/00/62/07/32/1561768/98b2e7b31050e48bbac3e5cc7fb6a1b8fdf6cc416056606404d4a5918d638512abe3.jpg");
+}
+
+.bg-mountain {
+    background-image: url("https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/upwk82512603-wikimedia-image-job572-1.jpg?w=1200&h=1200&dpr=1&fit=clip&crop=default&fm=jpg&q=75&vib=3&con=3&usm=15&cs=srgb&bg=F4F4F3&ixlib=js-2.2.1&s=6d6e0f35e2cdd71d77660954084f0f0b");
+}
+
+.bg-boat {
+    background-image: url("https://cdn.osxdaily.com/wp-content/uploads/2017/06/macos-high-sierra-default-wallpaper-fall-mountain-scene-1.jpg");
 }
 
 * {

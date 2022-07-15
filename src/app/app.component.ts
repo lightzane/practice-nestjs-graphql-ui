@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { PrimeIcons, PrimeNGConfig } from 'primeng/api';
+import { interval } from 'rxjs';
 import { NavOption } from './shared/interfaces/nav-options.interface';
 
 @Component({
@@ -13,6 +14,12 @@ export class AppComponent implements OnInit {
 
   navOptions: NavOption[];
   selectedNav: NavOption;
+  bg = [
+    'bg-monterey-purple',
+    'bg-mountain',
+    'bg-boat'
+  ];
+  bgIdx = 0;
 
   constructor(
     private primengConfig: PrimeNGConfig,
@@ -23,6 +30,13 @@ export class AppComponent implements OnInit {
     this.primengConfig.ripple = true;
     this.initNavOptions();
     // this.initParticles();
+    interval(1000 * 15).subscribe(() => {
+      this.bgIdx++;
+      this.bgIdx = this.bgIdx > this.bg.length ? 0 : this.bgIdx;
+      document.body.className = '';
+      // document.body.classList.add(this.bg[Math.floor(Math.random() * this.bg.length)]);
+      document.body.classList.add(this.bg[this.bgIdx]);
+    });
   }
 
   private initNavOptions(): void {

@@ -1,0 +1,32 @@
+:host::ng-deep {
+    .p-menubar {
+        padding: 0 0.5rem;
+        // background-color: rgba(0, 0, 0, 0.7);
+        border: none;
+        // border-radius: 0;
+        font-size: 0.8rem;
+    }
+
+    .p-menuitem {
+
+        &:first-child {
+            font-weight: bold;
+            padding: 0 0.7rem;
+        }
+
+        .p-menuitem-link {
+            padding: 0rem;
+        }
+    }
+
+    .p-menubar-end {
+        i {
+            padding: 0 0.7rem;
+        }
+    }
+}
+
+.clock {
+    padding: 0 0.75rem;
+    user-select: none;
+}

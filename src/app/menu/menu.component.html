@@ -1,0 +1,16 @@
+<p-menubar [model]="menuItems">
+    
+    <ng-template pTemplate="start">
+        <i class="pi pi-apple ms-3"></i>
+    </ng-template>
+
+    <ng-template pTemplate="end">
+        <div class="d-flex align-items-center">
+            <i class="pi pi-wifi"></i>
+            <i class="pi pi-mobile" style="transform: rotateZ(90deg)"></i>
+            <i class="pi pi-search"></i>
+            <span class="clock">{{ $time | async | date: 'ccc dd. LLL HH:mm' }}</span>
+        </div>
+    </ng-template>
+
+</p-menubar>

@@ -14,6 +14,7 @@ import { RecipesComponent } from './components/recipes/recipes.component';
 import { GatherComponent } from './components/gather/gather.component';
 import { MissingIngredientsDialog } from './dialogs/missing-ingredients/missing-ingredients.dialog';
 import { AddRecipeDialog } from './dialogs/add-recipe/add-recipe.dialog';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AddRecipeDialog } from './dialogs/add-recipe/add-recipe.dialog';
     RecipesComponent,
     GatherComponent,
     MissingIngredientsDialog,
-    AddRecipeDialog
+    AddRecipeDialog,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

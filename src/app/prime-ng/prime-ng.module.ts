@@ -12,6 +12,7 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { DockModule } from 'primeng/dock';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
+import { MenubarModule } from 'primeng/menubar';
 
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
@@ -45,7 +46,8 @@ import { ConfirmationService, MessageService } from 'primeng/api';
     InputNumberModule,
     DropdownModule,
     AutoCompleteModule,
-    DividerModule
+    DividerModule,
+    MenubarModule
   ]
 })
 export class PrimeNgModule { }

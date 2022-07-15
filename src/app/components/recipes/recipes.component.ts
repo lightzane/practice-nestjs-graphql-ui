@@ -60,6 +60,12 @@ export class RecipesComponent implements OnInit {
               severity: 'success'
             });
             this.initRecipelist();
+          } else {
+            this.messageService.add({
+              summary: 'Rejected...',
+              detail: res.errors[0].message,
+              severity: 'error'
+            });
           }
         },
         error: (err) => {
