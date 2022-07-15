@@ -32,7 +32,7 @@
             <p>Produce quantity: {{ recipe.produceQuantity }} </p>
             <!-- Ingredient list -->
             <p-listbox 
-            emptyMessage="No ingredients needed"
+              emptyMessage="No ingredients needed"
               [options]="recipe.ingredients" 
               optionLabel="name" 
               [readonly]="true" styleClass="ingredient-list">

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MessageService } from 'primeng/api';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { DATA_ITEM_IMAGE } from '../../shared/data/item-image';
 import { Ingredient } from '../../shared/models/ingredient.model';
@@ -38,7 +37,6 @@ export class AddRecipeDialog implements OnInit {
 
   constructor(
     private http: HttpService,
-    private messageService: MessageService,
     private fb: FormBuilder,
     private dialogRef: DynamicDialogRef
   ) { }
@@ -97,9 +95,10 @@ export class AddRecipeDialog implements OnInit {
   filterRecipes(event: any) {
     let filtered: Recipe[] = [];
     let query = event.query as string;
+    const regex = new RegExp(query, 'gi');
     for (let i = 0; i < this.existingRecipes.length; i++) {
       let item = this.existingRecipes[i];
-      if (item.name.toLowerCase().indexOf(query.toLowerCase()) === 0) {
+      if (regex.test(item.name)) {
         filtered.push(item);
       }
     }
