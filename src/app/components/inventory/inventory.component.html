@@ -1,0 +1,11 @@
+<p>Total value: <p-badge [value]="value?.toString()" severity="success"></p-badge></p>
+
+<div class="item mx-3 mt-5" *ngFor="let item of items" [pTooltip]="item.name" tooltipPosition="bottom">
+  <p-image [src]="item.imageUrl" width="80px" height="80px"></p-image>
+  <p-badge
+    styleClass="item-badge"
+    [value]="item.quantity?.toString()"
+    size="large"
+  ></p-badge>
+</div>
+

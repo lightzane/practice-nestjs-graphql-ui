@@ -1,27 +1,41 @@
-# PracticeNestjsGraphqlUi
+# practice-nestjs-graphql-ui
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.4.
+Create this UI for the https://github.com/lightzane/practice-nestjs-graphql using PrimeNG (https://www.primefaces.org/primeng/)
 
-## Development server
+## Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Must have this server setup: https://github.com/lightzane/practice-nestjs-graphql
+- `npm install`
+- `npm start`
 
-## Code scaffolding
+## How this Project is Created
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. ng new practice-nestjs-graphql-ui
+2. `npm install primeng primeicons`
+3. Add the following in `angular.json`
 
-## Build
+```
+node_modules/primeicons/primeicons.css
+node_modules/primeng/resources/themes/lara-light-blue/theme.css
+node_modules/primeng/resources/primeng.min.css
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+4. Add the following in `app.module.ts`
 
-## Running unit tests
+```ts
+import { PrimeNGConfig } from 'primeng/api';
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+})
+export class AppComponent implements OnInit {
+  constructor(private primengConfig: PrimeNGConfig) {}
 
-## Running end-to-end tests
+  ngOnInit() {
+    this.primengConfig.ripple = true;
+  }
+}
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+5. Select and inject primeng components (see more: https://www.primefaces.org/primeng/setup)

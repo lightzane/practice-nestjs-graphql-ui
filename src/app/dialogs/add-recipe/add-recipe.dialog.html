@@ -1,0 +1,96 @@
+<form [formGroup]="sampleForm" class="add-recipe-container mt-4 d-flex flex-wrap">
+    <!-- adding div.p-input-filled is optional -->
+    <div class="p-input-filled p-inputgroup">
+        <span class="p-float-label">
+            <input pInputText formControlName="name" id="input-recipe" class="p-inputtext-sm" type="text" placeholder="Name of recipe" required> 
+            <label for="input-recipe">Recipe</label>
+        </span>   
+    </div> 
+
+    <div class="p-input-filled p-inputgroup">
+        <span class="p-float-label">
+            <input pInputText formControlName="imageUrl" id="input-recipe" class="p-inputtext-sm" type="text" placeholder="Name of recipe" required> 
+            <label for="input-recipe">Image URL</label>
+        </span>   
+    </div> 
+
+    <!-- also instead of repeating the same class ".p-inputtext-sm" if input group, put here in parent -->
+    <div class="p-input-filled p-inputtext-sm">
+        <span class="p-float-label">
+            <p-inputNumber formControlName="price" id="input-price" mode="decimal" [required]="true"></p-inputNumber>
+            <label for="input-price">Price</label>
+        </span>
+    </div>
+
+    <div class="p-input-filled p-inputtext-sm">
+        <span class="p-float-label">
+            <p-inputNumber formControlName="produceQuantity" id="input-produce-quantity" mode="decimal" [allowEmpty]="false"></p-inputNumber>
+            <label for="input-produce-quantity">Produce Quantity</label>
+        </span>
+    </div>
+
+    <div class="p-input-filled p-inputtext-sm">
+        <span class="p-float-label">
+            <p-dropdown formControlName="category" id="input-category" [options]="categories" optionLabel="name" optionValue="name"></p-dropdown>
+            <label for="input-category">Category</label>
+        </span>
+    </div>    
+
+</form>
+
+<!-- Ingredients -->
+<div>
+    
+    <p-divider align="left">
+        <h5>Add Ingredients</h5>
+    </p-divider>
+
+    <div class="d-flex flex-wrap justify-content-around">
+        <div class="p-inputtext-sm p-input-filled">
+            <span class="p-float-label">
+                <p-autoComplete [(ngModel)]="inputIngredient" [suggestions]="filteredRecipes" (completeMethod)="filterRecipes($event)" field="name"></p-autoComplete>
+                <label for="input-ingredient">Ingredient</label>
+            </span>
+        </div>
+    
+        <div class="p-inputtext-sm p-input-filled">
+            <span class="p-float-label">
+                <p-inputNumber [(ngModel)]="inputIngredientQuantity" id="input-ingredient-quantity"></p-inputNumber>
+                <label for="input-ingredient-quantity">Quantity</label>
+            </span>
+        </div>
+    
+        <p-button 
+            icon="pi pi-plus" 
+            label="Add Ingredient" 
+            styleClass="p-button-sm p-button-rounded" 
+            (click)="addIngredient()"
+            [disabled]="!inputIngredient || !inputIngredientQuantity"
+        ></p-button>
+    </div>
+
+    <div class="container">
+        <ng-container *ngFor="let ingredient of addedIngredients; let i = index">
+            <p-divider></p-divider>
+            <div class="d-flex justify-content-between align-items-center">
+                <p-badge [value]="'x' + ingredient.quantity.toString()"></p-badge>
+                <span style="font-weight: bold;">{{ ingredient.name }}</span>
+                <p-button
+                    styleClass="p-button-sm p-button-rounded p-button-danger p-button-text"
+                    icon="pi pi-trash"
+                    (click)="removeIngredient(i)"
+                ></p-button>
+            </div>
+        </ng-container> 
+    </div>
+</div>
+
+<div class="dialog-actions d-flex justify-content-center mt-5">
+    <p-button 
+        label="Submit" 
+        styleClass="p-button-sm p-button-rounded" 
+        icon="pi pi-send" 
+        [disabled]="!addedIngredients.length || sampleForm.invalid"
+        (click)="submitRecipe()"
+    ></p-button>
+</div>

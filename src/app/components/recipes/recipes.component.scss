@@ -1,0 +1,30 @@
+.recipe-card {
+    width: 300px;
+}
+
+.price {
+    position: absolute;
+    top: 0;
+    left: 45%;
+    margin: auto;
+    margin-top: -10px;
+}
+
+.dialog-add-recipe {
+    max-width: 650px;
+    min-width: 300px;
+    min-height: 600px;
+}
+
+$size: 30px;
+
+.ingredient-list .item {
+    border: none;
+    width: $size;
+    height: $size;
+}
+
+.ingredient-list .item img {
+    width: $size;
+    height: $size;
+}

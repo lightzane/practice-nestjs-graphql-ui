@@ -1,0 +1,54 @@
+<p-toolbar>
+  <div class="p-toolbar-group-left">
+    <p-button
+      icon="pi pi-plus me-2"
+      styleClass="p-button-rounded p-button-sm me-2"
+      label="Add Recipe"
+      (click)="addRecipe()"
+    ></p-button>
+  </div>
+  <div class="p-toolbar-group-right">
+    <p-button
+      icon="pi pi-heart"
+      styleClass="p-button-danger p-button-rounded p-button-outlined"
+    ></p-button>
+  </div>
+</p-toolbar>
+
+<!-- Recipes List -->
+<div class="container mt-3" style="max-height: 50vh; overflow-y: auto">
+    <div class="d-flex flex-start flex-wrap my-3 justify-content-around">
+        <!-- Recipe card -->
+        <p-card *ngFor="let recipe of recipes" styleClass="recipe-card mb-4">
+            <ng-template pTemplate="header">
+                <div class="d-flex align-items-center position-relative">
+                    <img [src]="recipe.imageUrl" style="max-width: 30%">
+                    <p class="px-3" style="text-transform: capitalize; text-align: center; width: 100%; font-weight: bold;">
+                        {{ recipe.name }}
+                    </p>
+                    <p-badge [value]="recipe.price?.toString()" severity="warning" styleClass="price"></p-badge>
+                </div>
+            </ng-template>
+            <p>Produce quantity: {{ recipe.produceQuantity }} </p>
+            <!-- Ingredient list -->
+            <p-listbox [options]="recipe.ingredients" optionLabel="name" [readonly]="true" styleClass="ingredient-list">
+                <ng-template let-ingredient pTemplate="item">
+                  <span>
+                    <div class="item me-1">
+                      <img [src]="ingredient.imageUrl">
+                    </div>
+                    <p-badge [value]="'x' + ingredient.quantity"></p-badge>
+                    <span class="ms-1">{{ ingredient.name }}</span>
+                  </span>
+                </ng-template>
+              </p-listbox>
+            <ng-template pTemplate="footer">
+                <p-button
+                styleClass="p-button-rounded p-button-sm me-2 p-button-outlined p-button-success"
+                label="Cook Recipe"
+                (click)="cookRecipe(recipe.name)"
+            ></p-button>
+            </ng-template>
+        </p-card>
+    </div>
+</div>

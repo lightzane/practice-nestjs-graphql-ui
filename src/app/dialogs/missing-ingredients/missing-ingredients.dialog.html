@@ -1,0 +1,9 @@
+
+<div class="container">
+    <p-listbox [options]="missingIngredients" optionLabel="name" [readonly]="true">
+        <ng-template let-ingredient pTemplate="item">
+          <p-badge [value]="'x' + ingredient.quantity.toString()" severity="danger"></p-badge>
+          <span class="mx-3">{{ ingredient.name }}</span>
+        </ng-template>
+    </p-listbox>
+</div>
