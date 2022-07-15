@@ -28,3 +28,12 @@ $size: 30px;
     width: $size;
     height: $size;
 }
+
+.p-dialog-footer .p-button-icon,
+.p-dialog-content .pi:not(.pi-trash) {
+    display: none;
+}
+
+.p-confirm-dialog-message {
+    margin-left: 0 !important;
+}

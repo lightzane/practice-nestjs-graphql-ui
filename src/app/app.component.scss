@@ -22,3 +22,58 @@
     background-color: lighten(#eee, 2.5);
     // background-image: url("https://cdn.jsdelivr.net/gh/lightzane/basic-kanban@master/src/assets/scattered-forcefields.svg");
 }
+
+
+// dialog that look like in iphone
+.my-dialog-yes-no {
+    overflow: hidden;
+    min-width: 220px;
+
+    .p-dialog-content {
+        padding: 0 1em !important;
+        padding-bottom: 1em !important;
+    }
+
+    .p-dialog-header {
+        display: block !important;
+        text-align: center !important;
+        padding: 0.7em !important;
+        padding-top: 1em !important;
+
+        .p-dialog-title {
+            font-size: 1.1em !important;
+        }
+
+        .p-dialog-header-icons {
+            display: none !important;
+        }
+    }
+
+    .p-confirm-dialog-message {
+        text-align: center;
+        font-size: 0.9em;
+        width: 100%;
+    }
+
+    .p-dialog-footer {
+        display: flex;
+        padding: 0 !important;
+    }
+
+    .p-dialog-footer {
+
+        .p-button {
+            border-radius: 0;
+            width: 100% !important;
+            margin: 0 !important;
+            outline: none !important;
+            border-right: none !important;
+            border-color: #ccc;
+
+            &:nth-child(1) {
+                border-left: none !important;
+                color: red !important;
+            }
+        }
+    }
+}

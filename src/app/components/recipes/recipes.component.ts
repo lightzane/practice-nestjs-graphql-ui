@@ -47,10 +47,12 @@ export class RecipesComponent implements OnInit {
   addRecipe(): void {
     const dialogRef = this.dialogService.open(AddRecipeDialog, {
       header: AddRecipeDialogHeader,
-      styleClass: 'dialog-add-recipe'
+      styleClass: 'dialog-add-recipe',
+      dismissableMask: true
     });
 
     dialogRef.onClose.subscribe((recipe: Recipe) => {
+      if (!recipe) { return; }
       this.http.addRecipe(recipe).subscribe({
         next: (res) => {
           if (res.data) {
@@ -83,17 +85,17 @@ export class RecipesComponent implements OnInit {
   cookRecipe(name: string): void {
     this.confirmationService.confirm({
       message: `Make <strong>${name}</strong>?`,
-      rejectButtonStyleClass: 'p-button-outlined p-button-warning',
-      acceptButtonStyleClass: 'p-button-success',
-      icon: 'pi',
+      rejectButtonStyleClass: 'p-button-outlined',
+      acceptButtonStyleClass: 'p-button-outlined',
       accept: () => { this.craft(name); },
-      reject: () => {
-        this.messageService.add({
-          summary: 'Cancelled',
-          severity: 'warn',
-          detail: `User cancelled making ${name}`,
-        });
-      }
+      // reject: () => {
+      //   this.messageService.add({
+      //     summary: 'Cancelled',
+      //     severity: 'warn',
+      //     detail: `User cancelled making ${name}`,
+      //   });
+      // },
+      dismissableMask: true
     });
   }
 
@@ -110,7 +112,8 @@ export class RecipesComponent implements OnInit {
           const dialogRef = this.dialogService.open(MissingIngredientsDialog, {
             data: res.errors[0].extensions.exception.response,
             header: MissingIngredientsDialogHeader,
-            width: '300px'
+            width: '300px',
+            dismissableMask: true
           });
         }
       }
