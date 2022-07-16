@@ -1,27 +1,29 @@
+<div class="gather-wrapper w-100">
+    <p>Click the button below to gather resources and get materials/ingredients for crafting</p>
 
-<p>Click the button below to gather resources and get materials/ingredients for crafting</p>
+    <!-- Content -->
+    <div class="container mt-2" *ngIf="items.length">
 
-<!-- Content -->
-<div class="container mt-2" *ngIf="items.length">
-    <h5>You had gathered the following resources</h5>
-    <div class="item mx-3 mt-3" *ngFor="let item of items" [pTooltip]="item.name" tooltipPosition="bottom">
-        <p-image [src]="item.imageUrl" width="80px" height="80px"></p-image>
-        <p-badge
-            styleClass="item-badge"
-            [value]="item.quantity?.toString()"
-            size="large"
-        ></p-badge>
+        <h5>You had gathered the following resources</h5>
+        <div class="item mx-3 mt-3" *ngFor="let item of items" [pTooltip]="item.name" tooltipPosition="bottom">
+            <p-image [src]="item.imageUrl" width="80px" height="80px"></p-image>
+            <p-badge
+                styleClass="item-badge"
+                [value]="item.quantity?.toString()"
+                size="large"
+            ></p-badge>
+        </div>
     </div>
-</div>
-  
-<!-- Action Buttons -->
-<div class="container-fluid mt-5">
-    <button pRipple pButton class="p-button-rounded p-button-success p-button-sm" (click)="harvest()" [disabled]="isSuccessfulHarvest">
-        <i class="pi pi-check me-2" *ngIf="isSuccessfulHarvest"></i>
-        <span>Harvest</span>
-    </button>
-    <button pRipple pButton class="p-button-rounded p-button-sm ms-2" (click)="fish()" [disabled]="isSuccessfulFish">
-        <i class="pi pi-check me-2" *ngIf="isSuccessfulFish"></i>
-        <span>Catch some Fish</span>
-    </button>    
+    
+    <!-- Action Buttons -->
+    <div class="container-fluid mt-5">
+        <button pRipple pButton class="p-button-rounded p-button-success p-button-sm" (click)="harvest()" [disabled]="isSuccessfulHarvest">
+            <i class="pi pi-check me-2" *ngIf="isSuccessfulHarvest"></i>
+            <span>Harvest</span>
+        </button>
+        <button pRipple pButton class="p-button-rounded p-button-sm ms-2" (click)="fish()" [disabled]="isSuccessfulFish">
+            <i class="pi pi-check me-2" *ngIf="isSuccessfulFish"></i>
+            <span>Catch some Fish</span>
+        </button>    
+    </div>
 </div>

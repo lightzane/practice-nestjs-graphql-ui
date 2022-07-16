@@ -6,26 +6,76 @@
 <!-- macos-alike menu -->
 <app-menu></app-menu>
 
-<!-- Main content -->
-<div class="container pt-3">
-  <div class="row">
+<!-- Main content (current UI) -->
+<div class="finder container mt-4 m-3 m-auto d-flex w-50 p-0 d-none d-md-flex anim-fade">
+  <!-- finder SIDENAV -->
+  <div class="finder-sidenav p-3">
+    <!-- Control buttons -->
+    <p>
+      <i class="pi pi-circle-fill" style="color: #ff605c"></i>
+      <i class="pi pi-circle-fill" style="color: #ffbd44"></i>
+      <i class="pi pi-circle-fill" style="color: #00ca4e"></i>
+    </p>
+    <!-- Favorites -->
+    <span class="finder-label">Favorites</span>
+    <p-listbox [options]="navOptions" [(ngModel)]="selectedNav" optionLabel="name" [routerLink]="selectedNav?.url" styleClass="finder-sidenav__nav-list">
+      <ng-template let-navOption pTemplate="item">
+        <i [class]="navOption.icon"></i>
+        <span class="mx-3">{{ navOption.name }}</span>
+      </ng-template>
+    </p-listbox>
+
+    <!-- iCloud -->
+    <span class="finder-label mb-2 d-block">iCloud</span>
+    <p class="finder-list" *ngFor="let i of iCloud">
+      <i [class]="i.icon"></i>
+      <span>{{ i.label }}</span>
+    </p>
+
+    <!-- Tags -->
+    <span class="finder-label my-2 d-block">Tags</span>
+    <p class="finder-list d-flex align-items-center" *ngFor="let i of colorTags">
+      <i [class]="i.icon" [style.color]="i.label"></i>
+      <span>{{ i.label }}</span>
+    </p>
+
+  </div>
+  <!-- finder CONTENT -->
+  <div class="finder-content p-3 w-100">
+    <div class="finder-content-header">
+      <h5>{{selectedNav?.name}}</h5>
+    </div>
+    <div class="finder-content-body">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<!-- Main content (previous UI) -->
+
+<!-- <div class="container pt-3 d-md-none">
+  <div class="row"> -->
+
     <!-- navigation -->
-    <div class="col col-md-2 mb-3">
+
+    <!-- <div class="col col-md-2 mb-3">
       <p-listbox [options]="navOptions" [(ngModel)]="selectedNav" optionLabel="name" [routerLink]="selectedNav?.url" styleClass="nav-list">
         <ng-template let-navOption pTemplate="item">
           <i [class]="navOption.icon"></i>
           <span class="mx-3">{{ navOption.name }}</span>
         </ng-template>
       </p-listbox>
-    </div>
+    </div> -->
+
     <!-- view -->
-    <div class="col">
+
+    <!-- <div class="col">
       <p-card [header]="selectedNav?.name" styleClass="view-card">
         <router-outlet></router-outlet>
       </p-card>
     </div>
   </div>
-</div>
+</div> -->
 
 <div class="container position-fixed bottom-0 inline-block m-auto translate-middle start-50">
   <p-dock [model]="navOptions" position="bottom" (click)="$event.preventDefault()" styleClass="dock">

@@ -21,6 +21,49 @@ export class AppComponent implements OnInit {
   ];
   bgIdx = 0;
 
+  // Extra labels
+  iCloud = [
+    {
+      label: 'iCloud Drive',
+      icon: PrimeIcons.CLOUD
+    },
+    {
+      label: 'Shared',
+      icon: PrimeIcons.GLOBE
+    }
+  ];
+
+  colorTags = [
+    {
+      label: 'red',
+      icon: PrimeIcons.CIRCLE_FILL
+    },
+    {
+      label: 'orange',
+      icon: PrimeIcons.CIRCLE_FILL
+    },
+    {
+      label: 'yellow',
+      icon: PrimeIcons.CIRCLE_FILL
+    },
+    {
+      label: 'green',
+      icon: PrimeIcons.CIRCLE_FILL
+    },
+    {
+      label: 'blue',
+      icon: PrimeIcons.CIRCLE_FILL
+    },
+    {
+      label: 'purple',
+      icon: PrimeIcons.CIRCLE_FILL
+    },
+    {
+      label: 'gray',
+      icon: PrimeIcons.CIRCLE_FILL
+    },
+  ];
+
   constructor(
     private primengConfig: PrimeNGConfig,
     private router: Router
