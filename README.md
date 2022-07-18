@@ -4,6 +4,8 @@ Create this UI for the https://github.com/lightzane/practice-nestjs-graphql usin
 
 ## Getting Started
 
+See demo of this UI: https://lightzane.github.io/practice-nestjs-graphql-ui
+
 - Must have this server setup: https://github.com/lightzane/practice-nestjs-graphql
 - `npm install`
 - `npm start`
